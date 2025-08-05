@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>کد اشتراک</title>
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/tailwind.js"></script>
+  <script src="assets/js/fontawesome.js"></script>
+  <script src="assets/js/main.js"></script>
+  <style>
+    @font-face {
+      font-family: iran-sans;
+      src: url(assets/fonts/IranianSans.ttf);
+    }
+
+    body {
+      font-family: iran-sans,serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+  <span>صفحه تشکر</span>
+  <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen text-blue-1 flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+  <i class="fa-regular fa-handshake my-8 text-[150px] animate__animated animate__shakeY"></i>
+  <p id="thanksText"></p>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+  <div class="text-center" onclick="window.location.href='login.html'">
+    <i class="fa-regular fa-user"></i>
+    <p>حساب کاربری</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='home.html'">
+    <i class="fa-regular fa-house"></i>
+    <p>صفحه خانه</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='buy.html'">
+    <i class="fa-regular fa-credit-card"></i>
+    <p>بخش خرید</p>
+  </div>
+</footer>
+
+<script>
+  const text = "ضمن تشکر از شما، لطفا ریموت را تهیه فرمایید.";
+  const target = document.getElementById("thanksText");
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      target.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+</body>
+</html>

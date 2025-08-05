@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <title>ثبت‌نام</title>
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/tailwind.js"></script>
+    <script src="assets/js/fontawesome.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        @font-face {
+            font-family: iran-sans;
+            src: url(assets/fonts/IranianSans.ttf);
+        }
+
+        body {
+            font-family: iran-sans,serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+    <span>ثبت‌نام</span>
+    <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+    <form action="" method="post" class="animate__animated animate__fadeInDown">
+        <label for="email" class="block w-full text-start mb-8">ایمیل:</label>
+        <input id="email" type="email" name="email" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="emailError" class="text-red-700 text-[30px] block text-start hidden">ایمیل نمی‌تواند خالی باشد.</span>
+        <label for="phone" class="block w-full text-start my-8">شماره تماس:</label>
+        <input id="phone" type="text" name="phone" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="phoneError" class="text-red-700 text-[30px] block text-start hidden">شماره تماس نمی‌تواند خالی باشد.</span>
+        <label for="password" class="block w-full text-start my-8">رمز عبور:</label>
+        <input id="password" type="password" name="password" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="passwordError" class="text-red-700 text-[30px] block text-start hidden">رمز عبور نمی‌تواند خالی باشد.</span>
+        <label for="passwordRepeat" class="block w-full text-start my-8">تکرار رمز عبور:</label>
+        <input id="passwordRepeat" type="password" name="passwordRepeat" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="passwordRepeatError" class="text-red-700 text-[30px] block text-start hidden">تکرار رمز عبور نمی‌تواند خالی باشد.</span>
+        <button type="submit" class="w-full border-2 border-blue-3 text-blue-3 rounded-2xl px-8 py-5 block my-10">ثبت‌نام</button>
+    </form>
+    <a href="login.html" class="decoration-none text-blue-2 text-[40px]">ورود با حساب کاربری</a>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+    <div class="text-center" onclick="window.location.href='login.html'">
+        <i class="fa-regular fa-user"></i>
+        <p>حساب کاربری</p>
+    </div>
+    <div class="text-center" onclick="window.location.href='home.html'">
+        <i class="fa-regular fa-house"></i>
+        <p>صفحه خانه</p>
+    </div>
+    <div class="text-center text-blue-3" onclick="window.location.href='buy.html'">
+        <i class="fa-regular fa-credit-card"></i>
+        <p>بخش خرید</p>
+    </div>
+</footer>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const fields = [
+            { input: "email", error: "emailError" },
+            { input: "phone", error: "phoneError" },
+            { input: "password", error: "passwordError" },
+            { input: "passwordRepeat", error: "passwordRepeatError" }
+        ];
+
+        let isValid = true;
+
+        fields.forEach(({ input, error }) => {
+            const inputEl = document.getElementById(input);
+            const errorEl = document.getElementById(error);
+            if (inputEl.value.trim() === "") {
+                errorEl.textContent = "این فیلد نمی‌تواند خالی باشد.";
+                errorEl.classList.remove("hidden");
+                inputEl.classList.add("border-red-500");
+                isValid = false;
+            } else {
+                errorEl.classList.add("hidden");
+                inputEl.classList.remove("border-red-500");
+            }
+        });
+
+        const password = document.getElementById("password").value.trim();
+        const passwordRepeat = document.getElementById("passwordRepeat").value.trim();
+        const passwordError = document.getElementById("passwordError");
+        const passwordRepeatError = document.getElementById("passwordRepeatError");
+
+        if (password.length > 0 && password.length < 5) {
+            passwordError.textContent = "رمز عبور باید حداقل ۵ کاراکتر باشد.";
+            passwordError.classList.remove("hidden");
+            document.getElementById("password").classList.add("border-red-500");
+            isValid = false;
+        }
+
+        if (password !== passwordRepeat && passwordRepeat.length > 0) {
+            passwordRepeatError.textContent = "رمز عبور و تکرار آن باید یکسان باشند.";
+            passwordRepeatError.classList.remove("hidden");
+            document.getElementById("passwordRepeat").classList.add("border-red-500");
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

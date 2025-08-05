@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>شماره تماس</title>
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/tailwind.js"></script>
+  <script src="assets/js/fontawesome.js"></script>
+  <script src="assets/js/main.js"></script>
+  <style>
+    @font-face {
+      font-family: iran-sans;
+      src: url(assets/fonts/IranianSans.ttf);
+    }
+
+    body {
+      font-family: iran-sans,serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+  <span>شماره تماس</span>
+  <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+  <form action="video.html" method="post" class="animate__animated animate__fadeInDown">
+    <label for="phoneInput" class="block w-full text-start mb-8">شماره تماس:</label>
+    <input id="phoneInput" type="text" name="phone" placeholder="مثلا 09123456789" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+    <span id="phoneInputError" class="text-red-700 text-[30px] block text-start hidden">شماره تماس را به درستی وارد کنید.</span>
+    <button type="submit" class="w-full border-2 border-blue-3 text-blue-3 rounded-2xl px-8 py-5 block my-10">ثبت</button>
+  </form>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+  <div class="text-center" onclick="window.location.href='login.html'">
+    <i class="fa-regular fa-user"></i>
+    <p>حساب کاربری</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='home.html'">
+    <i class="fa-regular fa-house"></i>
+    <p>صفحه خانه</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='buy.html'">
+    <i class="fa-regular fa-credit-card"></i>
+    <p>بخش خرید</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const phoneInput = document.getElementById('phoneInput');
+    const errorMessage = document.getElementById('phoneInputError');
+    const phone = phoneInput.value.trim();
+
+    const iranPhoneRegex = /^09\d{9}$/;
+
+    if (!iranPhoneRegex.test(phone)) {
+      e.preventDefault();
+      errorMessage.classList.remove('hidden');
+      phoneInput.classList.add('border-red-500');
+      phoneInput.classList.remove('border-blue-1');
+    } else {
+      errorMessage.classList.add('hidden');
+      phoneInput.classList.remove('border-red-500');
+      phoneInput.classList.add('border-blue-1');
+    }
+  });
+</script>
+</body>
+</html>

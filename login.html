@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <title>ورود</title>
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/tailwind.js"></script>
+    <script src="assets/js/fontawesome.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        @font-face {
+            font-family: iran-sans;
+            src: url(assets/fonts/IranianSans.ttf);
+        }
+
+        body {
+            font-family: iran-sans,serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+    <span>ورود</span>
+    <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+    <form action="" method="post" class="animate__animated animate__fadeInDown">
+        <label for="userName" class="block w-full text-start mb-8">نام کاربری:</label>
+        <input id="userName" type="email" name="username" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="userNameError" class="text-red-700 text-[30px] block text-start hidden">نام کاربری نمی‌تواند خالی باشد.</span>
+        <label for="password" class="block w-full text-start my-8">رمز عبور:</label>
+        <input id="password" type="password" name="password" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="passwordError" class="text-red-700 text-[30px] block text-start hidden">رمز عبور نمی‌تواند خالی باشد.</span>
+        <button type="submit" class="w-full border-2 border-blue-3 text-blue-3 rounded-2xl px-8 py-5 block my-10">ورود</button>
+    </form>
+    <a href="signup.html" class="decoration-none text-blue-2 text-[40px]">ایجاد حساب کاربری جدید</a>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+    <div class="text-center" onclick="window.location.href='login.html'">
+        <i class="fa-regular fa-user"></i>
+        <p>حساب کاربری</p>
+    </div>
+    <div class="text-center" onclick="window.location.href='home.html'">
+        <i class="fa-regular fa-house"></i>
+        <p>صفحه خانه</p>
+    </div>
+    <div class="text-center text-blue-3" onclick="window.location.href='buy.html'">
+        <i class="fa-regular fa-credit-card"></i>
+        <p>بخش خرید</p>
+    </div>
+</footer>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const userName = document.getElementById("userName");
+        const userNameError = document.getElementById("userNameError");
+        const password = document.getElementById("password");
+        const passwordError = document.getElementById("passwordError");
+
+        let isValid = true;
+
+        if (userName.value.trim() === "") {
+            userNameError.classList.remove("hidden");
+            userName.classList.add("border-red-500");
+            isValid = false;
+        } else {
+            userNameError.classList.add("hidden");
+            userName.classList.remove("border-red-500");
+        }
+
+        if (password.value.trim() === "") {
+            passwordError.classList.remove("hidden");
+            password.classList.add("border-red-500");
+            isValid = false;
+        } else {
+            passwordError.classList.add("hidden");
+            password.classList.remove("border-red-500");
+        }
+
+        if (!isValid) {
+            e.preventDefault(); // جلوگیری از ارسال فرم
+        }
+    });
+</script>
+</body>
+</html>

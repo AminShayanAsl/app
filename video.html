@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>معرفی</title>
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/tailwind.js"></script>
+  <script src="assets/js/fontawesome.js"></script>
+  <script src="assets/js/main.js"></script>
+  <style>
+    @font-face {
+      font-family: iran-sans;
+      src: url(assets/fonts/IranianSans.ttf);
+    }
+
+    body {
+      font-family: iran-sans,serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+  <span>معرفی</span>
+  <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+  <video class="w-full h-auto rounded-2xl touch-none" loop autoplay muted>
+    <source src="assets/media/video.mp4" type="video/mp4">
+    کلیپ مورد نظر بارگذاری نشد...
+  </video>
+  <button class="w-full border-2 border-blue-3 text-blue-3 rounded-2xl px-8 py-5 block my-8" onclick="window.location.href='code-form.html'">
+    ادامه
+  </button>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+  <div class="text-center" onclick="window.location.href='login.html'">
+    <i class="fa-regular fa-user"></i>
+    <p>حساب کاربری</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='home.html'">
+    <i class="fa-regular fa-house"></i>
+    <p>صفحه خانه</p>
+  </div>
+  <div class="text-center" onclick="window.location.href='buy.html'">
+    <i class="fa-regular fa-credit-card"></i>
+    <p>بخش خرید</p>
+  </div>
+</footer>
+</body>
+</html>

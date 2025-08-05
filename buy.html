@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <title>بخش خرید</title>
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/tailwind.js"></script>
+    <script src="assets/js/fontawesome.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        @font-face {
+            font-family: iran-sans;
+            src: url(assets/fonts/IranianSans.ttf);
+        }
+
+        body {
+            font-family: iran-sans,serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+    <span>بخش خرید</span>
+    <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+<div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 text-[50px] pt-[50vh] pb-[55vh]">
+    <form action="" method="post" class="animate__animated animate__fadeInDown">
+        <label for="instagramInput" class="block w-full text-start mb-8">آیدی اینستاگرام:</label>
+        <input id="instagramInput" type="text" name="instagramId" placeholder="@instagram مثلا" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="instagramInputError" class="text-red-700 text-[30px] block text-start hidden">آیدی اینستاگرام را به درستی وارد کنید.</span>
+        <label for="telegramInput" class="block w-full text-start my-8">آیدی تلگرام:</label>
+        <input id="telegramInput" type="text" name="telegram" placeholder="@telegram مثلا" class="bg-white border-2xl my-3 py-4 px-3 rounded-2xl border-2 border-blue-1 outline-none text-center" dir="ltr"/>
+        <span id="telegramInputError" class="text-red-700 text-[30px] block text-start hidden">آیدی تلگرام را به درستی وارد کنید.</span>
+        <button type="submit" class="w-full border-2 border-blue-3 text-blue-3 rounded-2xl px-8 py-5 block my-10">ثبت</button>
+    </form>
+</div>
+
+
+<footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+    <div class="text-center" onclick="window.location.href='login.html'">
+        <i class="fa-regular fa-user"></i>
+        <p>حساب کاربری</p>
+    </div>
+    <div class="text-center" onclick="window.location.href='home.html'">
+        <i class="fa-regular fa-house"></i>
+        <p>صفحه خانه</p>
+    </div>
+    <div class="text-center text-blue-3" onclick="window.location.href='buy.html'">
+        <i class="fa-regular fa-credit-card"></i>
+        <p>بخش خرید</p>
+    </div>
+</footer>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        const instagramInput = document.getElementById("instagramInput");
+        const instagramError = document.getElementById("instagramInputError");
+        const telegramInput = document.getElementById("telegramInput");
+        const telegramError = document.getElementById("telegramInputError");
+
+        const instagramValue = instagramInput.value.trim();
+        const telegramValue = telegramInput.value.trim();
+
+        const instagramValid = /^@[a-zA-Z0-9._]{1,30}$/.test(instagramValue);
+        const telegramValid = /^@[a-zA-Z0-9._]{1,30}$/.test(telegramValue);
+
+        let formValid = true;
+
+        if (!instagramValid) {
+            instagramError.classList.remove("hidden");
+            instagramInput.classList.add("border-red-500");
+            formValid = false;
+        } else {
+            instagramError.classList.add("hidden");
+            instagramInput.classList.remove("border-red-500");
+        }
+
+        if (!telegramValid) {
+            telegramError.classList.remove("hidden");
+            telegramInput.classList.add("border-red-500");
+            formValid = false;
+        } else {
+            telegramError.classList.add("hidden");
+            telegramInput.classList.remove("border-red-500");
+        }
+
+        if (!formValid) {
+            e.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

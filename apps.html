@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>برنامه‌ها</title>
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/tailwind.js"></script>
+  <script src="assets/js/fontawesome.js"></script>
+  <script src="assets/js/main.js"></script>
+  <style>
+    @font-face {
+      font-family: iran-sans;
+      src: url(assets/fonts/IranianSans.ttf);
+    }
+
+    body {
+      font-family: iran-sans,serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100" dir="rtl">
+<header class="flex justify-around items-center shadow-lg p-3 text-gray-600 bg-white fixed top-0 left-0 w-full z-50 text-[50px]">
+  <span>برنامه‌ها</span>
+  <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+</header>
+
+
+  <div class="w-screen h-screen flex flex-col items-center justify-center bg-gray-100 text-center px-4 pt-[50vh] pb-[55vh]">
+    <div class="grid gap-8 grid-cols-2 gap-y-14 text-[40px]">
+      <button onclick="window.location.href='instagram.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <i class="fa-brands fa-instagram"></i>
+        <span>اینستاگرام</span>
+      </button>
+      <button onclick="window.location.href='phone-form.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <i class="fa-brands fa-telegram"></i>
+        <span>تلگرام</span>
+      </button>
+      <button onclick="window.location.href='phone-form.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <i class="fa-brands fa-facebook"></i>
+        <span>فیس‌بوک</span>
+      </button>
+      <button onclick="window.location.href='phone-form.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>واتساپ</span>
+      </button>
+      <button onclick="window.location.href='phone-form.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <img src="assets/media/eita.png" class="w-[40px]">
+        <span>ایتا</span>
+      </button>
+      <button onclick="window.location.href='phone-form.html'" class="rounded-2xl px-3 py-8 border-2 border-blue-2 text-blue-1 flex items-center justify-center gap-2 w-full animate__animated animate__fadeInDown">
+        <img src="assets/media/rubika.png" class="w-[50px]">
+        <span>روبیکا</span>
+      </button>
+    </div>
+  </div>
+
+
+  <footer class="grid gap-3 grid-cols-3 shadow-lg p-3 bg-white fixed bottom-0 left-0 w-full z-50 text-[40px] text-gray-500">
+    <div class="text-center" onclick="window.location.href='login.html'">
+      <i class="fa-regular fa-user"></i>
+      <p>حساب کاربری</p>
+    </div>
+    <div class="text-center" onclick="window.location.href='home.html'">
+      <i class="fa-regular fa-house"></i>
+      <p>صفحه خانه</p>
+    </div>
+    <div class="text-center" onclick="window.location.href='buy.html'">
+      <i class="fa-regular fa-credit-card"></i>
+      <p>بخش خرید</p>
+    </div>
+  </footer>
+</body>
+</html>
