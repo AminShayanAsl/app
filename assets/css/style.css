@@ -75,3 +75,6 @@
 .border-cream-4 {
     border-color: #FDEBD0;
 }
+#thanksText {
+  white-space: pre-line;
+}
